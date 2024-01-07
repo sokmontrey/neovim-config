@@ -1,4 +1,5 @@
 {
+  "conoline.vim": { "branch": "master", "commit": "95b6f03d026033e22e89525e4fcc7af30ea339a1" },
   "lazy.nvim": { "branch": "main", "commit": "96584866b9c5e998cbae300594d0ccfd0c464627" },
   "mason.nvim": { "branch": "main", "commit": "e110bc3be1a7309617cecd77bfe4bf86ba1b8134" },
   "nvim-tree.lua": { "branch": "master", "commit": "78a5836092617205a999aefc75be1d842c299cbc" },

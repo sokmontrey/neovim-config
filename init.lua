@@ -4,7 +4,6 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.cmd("set relativenumber")
 vim.cmd("set number")
-vim.cmd("set cursorline")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -19,33 +18,34 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local plugins = {
-  {
-    "nvim-tree/nvim-tree.lua",
-  },
-  {
-    "nvim-tree/nvim-web-devicons"
-  },
-  {
-    "nvim-treesitter/nvim-treesitter"
-  },
-  {
-    'nvim-telescope/telescope.nvim', tag = '0.1.5',
-    dependencies = { 'nvim-lua/plenary.nvim' }
-  },
-  {
-    "williamboman/mason.nvim"
-  },
-}
-local opts = {}
+require("lazy").setup("plugins")
 
 vim.g.mapleader = ' '
 vim.keymap.set('n', 'j', 'gj', {})
 vim.keymap.set('n', 'k', 'gk', {})
+vim.keymap.set('n', ';', ':', {})
 
-require("lazy").setup(plugins, opts)
-require("nvim-tree").setup()
-vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<CR>', { silent=true })
+vim.keymap.set('n', '<C-h>', '<C-w>h', {})
+vim.keymap.set('n', '<C-j>', '<C-w>', {})
+vim.keymap.set('n', '<C-k>', '<C-w>k', {})
+vim.keymap.set('n', '<C-l>', '<C-w>l', {})
+
+require("nvim-tree").setup({
+  sort = {
+    sorter = "case_sensitive",
+  },
+  view = {
+    width = 30,
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
+vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', {})
+vim.keymap.set('n', '<C-n>', ':NvimTreeClose<CR>', {})
 
 require("nvim-treesitter").setup()
 local builtin = require("telescope.builtin")
