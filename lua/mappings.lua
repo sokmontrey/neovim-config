@@ -1,12 +1,25 @@
 vim.g.mapleader = ' '
 
-vim.keymap.set('n', 'j', 'gj', {})
-vim.keymap.set('n', 'k', 'gk', {})
-vim.keymap.set('n', ';', ':', {})
+local all_mappings = {
+  ['n'] = {
+    -- preveting fingers injury
+    {'j', 'gj'},
+    {'k', 'gk'},
+    {';', ':'},
 
-vim.keymap.set('n', '<C-h>', '<C-w>h', {})
-vim.keymap.set('n', '<C-j>', '<C-w>', {})
-vim.keymap.set('n', '<C-k>', '<C-w>k', {})
-vim.keymap.set('n', '<C-l>', '<C-w>l', {})
+    -- window navigation
+    {'<C-h>', '<C-w>h'},
+    {'<C-j>', '<C-w>'},
+    {'<C-k>', '<C-w>k'},
+    {'<C-l>', '<C-w>l'},
 
-vim.keymap.set('n', '<leader><BS><BS>', ':wqa<CR>', {})
+    -- save all and exit
+    {'<leader><BS><BS>', ':wqa<CR>'},
+  }
+}
+
+for mode, maps in pairs(all_mappings) do
+  for _, map in pairs(maps) do
+    vim.keymap.set(mode, map[1], map[2], {})
+  end
+end
