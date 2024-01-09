@@ -13,7 +13,12 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = ' '
 
+vim.filetype.add({
+  extension = {
+    mdx = 'mdx'
+  }
+})
+
 require("vim-setup")
 require("lazy").setup("plugins")
 require("mappings")
-

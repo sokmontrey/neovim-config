@@ -16,7 +16,7 @@ local all_mappings = {
   ['tab navigation'] = {
     { '<Tab>',     ':bn<CR>', 'go to next buffer' },
     { '<S-Tab>',   ':bp<CR>', 'go to previous buffer' },
-    { '<leader>x', ':bd<CR>', 'close buffer' },
+    { '<leader>x', ':bp<CR>:bd#<CR>', 'close buffer' },
   },
 
   ['none-ls'] = {
