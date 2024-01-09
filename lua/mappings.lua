@@ -47,6 +47,11 @@ local all_mappings = {
       "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
       'toggle line comment', {}, 'v' },
   },
+
+  ['terminal'] = {
+    {'<C-Space>', '<C-\\><C-n>:ToggleTerm<CR>', 'toggle terminal (work inside a term)', {}, {'t', 'n'}},
+    {'<ESC>', '<C-\\><C-n>', 'escape terminal mode', {}, 't'},
+  },
 }
 
 for _, group_maps in pairs(all_mappings) do

@@ -1,7 +1,7 @@
 return {
   {
     "williamboman/mason.nvim",
-    config = function ()
+    config = function()
       require("mason").setup({
         ui = {
           icons = {
@@ -15,7 +15,7 @@ return {
   },
   {
     'williamboman/mason-lspconfig.nvim',
-    config = function ()
+    config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
           "ast_grep",
@@ -27,12 +27,19 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    config = function ()
+    config = function()
       local lspconfig = require("lspconfig")
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-      lspconfig.ast_grep.setup({})
-      lspconfig.lua_ls.setup({})
-      lspconfig.tsserver.setup({})
+      lspconfig.ast_grep.setup({
+        capabilities = capabilities
+      })
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities
+      })
+      lspconfig.tsserver.setup({
+        capabilities = capabilities
+      })
     end
   },
 }
