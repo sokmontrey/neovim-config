@@ -1,9 +1,12 @@
 local plugins = {
   {
-    "nvim-tree/nvim-web-devicons"
+    'nvim-tree/nvim-web-devicons',
+    config = true,
   },
   {
-    { 'akinsho/toggleterm.nvim', version = "*", config = true }
+    'akinsho/toggleterm.nvim',
+    lazy = false,
+    config = true,
   },
 }
 

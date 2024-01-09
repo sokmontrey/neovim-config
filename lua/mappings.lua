@@ -3,6 +3,7 @@ local all_mappings = {
     { 'k',                'gk',       'move up (including newline)' },
     { ';',                ':',        'just a replacement' },
     { '<leader><BS><BS>', ':wqa<CR>', 'save and close all buffers' },
+    { '<ESC>',            ':noh<CR>', 'clear search highlight' },
   },
 
   ['window navigation'] = {
@@ -41,7 +42,7 @@ local all_mappings = {
 
   ['comment'] = {
     { '<leader>/', require('Comment.api').toggle.linewise.current,
-    'toggle line comment' },
+      'toggle line comment' },
 
     { '<leader>/',
       "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
@@ -49,9 +50,15 @@ local all_mappings = {
   },
 
   ['terminal'] = {
-    {'<C-Space>', '<C-\\><C-n>:ToggleTerm<CR>', 'toggle terminal (work inside a term)', {}, {'t', 'n'}},
-    {'<ESC>', '<C-\\><C-n>', 'escape terminal mode', {}, 't'},
+    { '<C-Space>', '<C-\\><C-n>:ToggleTerm<CR>', 'toggle terminal (work inside a term)', {}, { 't', 'n' } },
+    { '<ESC>',     '<C-\\><C-n>',                'escape terminal mode',                 {}, 't' },
   },
+
+  ['projects'] = {
+    { '<leader>pp', ':Telescope neovim-project discover<CR>', 'search for projects' },
+    { '<leader>ph', ':Telescope neovim-project history<CR>',  'project history' },
+    { '<leader>pl', ':NeovimProjectLoadRecent<CR>',                'load recent project' },
+  }
 }
 
 for _, group_maps in pairs(all_mappings) do
