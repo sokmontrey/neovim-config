@@ -14,8 +14,8 @@ local all_mappings = {
   },
 
   ['tab navigation'] = {
-    { '<Tab>',     ':bn<CR>', 'go to next buffer' },
-    { '<S-Tab>',   ':bp<CR>', 'go to previous buffer' },
+    { '<Tab>',     ':bn<CR>',         'go to next buffer' },
+    { '<S-Tab>',   ':bp<CR>',         'go to previous buffer' },
     { '<leader>x', ':bp<CR>:bd#<CR>', 'close buffer' },
   },
 
@@ -35,9 +35,10 @@ local all_mappings = {
   },
 
   ['lsp'] = {
-    { 'K',          vim.lsp.buf.hover,       'hover definition' },
-    { '<leader>sd', vim.lsp.buf.definition,  'go to definition' },
-    { '<leader>ca', vim.lsp.buf.code_action, 'code action',     {}, { 'n', 'v' } },
+    { 'K',          vim.lsp.buf.hover,          'hover definition' },
+    { '<leader>sd', vim.lsp.buf.definition,     'go to definition' },
+    { '<leader>si', vim.lsp.buf.implementation, 'go to implementation' },
+    { '<leader>sa', vim.lsp.buf.code_action,    'code action',         {}, { 'n', 'v' } },
   },
 
   ['comment'] = {
@@ -57,7 +58,7 @@ local all_mappings = {
   ['projects'] = {
     { '<leader>pp', ':Telescope neovim-project discover<CR>', 'search for projects' },
     { '<leader>ph', ':Telescope neovim-project history<CR>',  'project history' },
-    { '<leader>pl', ':NeovimProjectLoadRecent<CR>',                'load recent project' },
+    { '<leader>pl', ':NeovimProjectLoadRecent<CR>',           'load recent project' },
   }
 }
 

@@ -6,22 +6,15 @@ return {
       options = {
         section_separators = { left = '', right = '' },
         component_separators = { left = '', right = '' },
-        theme = "horizon",
+        theme = "ayu_mirage",
       },
       sections = {
         lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
-        lualine_c = {'filename'},
-        lualine_x = {'filetype'},
+        lualine_b = {'branch'},
+        lualine_c = {'filetype','filename'},
+        lualine_x = {'diagnostics'},
+        lualine_y = {'diff', 'lsp'},
         lualine_z = {'fileformat'}
-      },
-      inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {'filename'},
-        lualine_x = {'location'},
-        lualine_y = {},
-        lualine_z = {}
       },
     })
   end
