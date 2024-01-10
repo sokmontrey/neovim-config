@@ -16,7 +16,7 @@ local all_mappings = {
   ['tab navigation'] = {
     { '<Tab>',     ':bn<CR>',         'go to next buffer' },
     { '<S-Tab>',   ':bp<CR>',         'go to previous buffer' },
-    { '<leader>x', ':bp<CR>:bd#<CR>', 'close buffer' },
+    { '<leader>x', ':bp | bd#<CR>', 'close buffer' },
   },
 
   ['none-ls'] = {
@@ -51,8 +51,14 @@ local all_mappings = {
   },
 
   ['terminal'] = {
-    { '<C-Space>', '<C-\\><C-n>:ToggleTerm<CR>', 'toggle terminal (work inside a term)', {}, { 't', 'n' } },
-    { '<ESC>',     '<C-\\><C-n>',                'escape terminal mode',                 {}, 't' },
+    { '<C-Space>', ':ToggleTerm<CR>',   'toggle terminal',                       {}, 'n' },
+    { '<C-Space>', '<C-\\><C-n>:q<CR>', 'close terminal (during terminal mode)', {}, 't' },
+    { '<ESC>',     '<C-\\><C-n>',       'escape terminal mode',                  {}, 't' },
+    { '<leader>ts', ':TermSelect<CR>', 'select terminal' },
+  },
+
+  ['git'] = {
+    {'<leader>gi', ':TermExec direction=float name=git cmd="lazygit"<CR>', 'open lazy git in a floating terminal'}
   },
 
   ['projects'] = {
