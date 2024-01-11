@@ -14,8 +14,8 @@ local all_mappings = {
   },
 
   ['tab navigation'] = {
-    { '<Tab>',     ':bn<CR>',         'go to next buffer' },
-    { '<S-Tab>',   ':bp<CR>',         'go to previous buffer' },
+    { '<Tab>',     ':bn<CR>',       'go to next buffer' },
+    { '<S-Tab>',   ':bp<CR>',       'go to previous buffer' },
     { '<leader>x', ':bp | bd#<CR>', 'close buffer' },
   },
 
@@ -51,16 +51,21 @@ local all_mappings = {
   },
 
   ['terminal'] = {
-    { '<C-Space>', ':ToggleTerm<CR>',   'toggle terminal',                       {}, 'n' },
-    { '<C-Space>', '<C-\\><C-n>:q<CR>', 'close terminal (during terminal mode)', {}, 't' },
-    { '<ESC>',     '<C-\\><C-n>',       'escape terminal mode',                  {}, 't' },
-    { '<leader>ts', ':TermSelect<CR>', 'select terminal' },
+    { '<C-Space>',  ':ToggleTerm<CR>',   'toggle terminal',                       {}, 'n' },
+    { '<C-Space>',  '<C-\\><C-n>:q<CR>', 'close terminal (during terminal mode)', {}, 't' },
+    { '<ESC>',      '<C-\\><C-n>',       'escape terminal mode',                  {}, 't' },
+    { '<leader>ts', ':TermSelect<CR>',   'select terminal' },
   },
 
   ['projects'] = {
     { '<leader>pp', ':Telescope neovim-project discover<CR>', 'search for projects' },
     { '<leader>ph', ':Telescope neovim-project history<CR>',  'project history' },
     { '<leader>pl', ':NeovimProjectLoadRecent<CR>',           'load recent project' },
+  },
+
+  ['git'] = {
+    { '<leader>gi', ':Git<CR>',  'open vim figitive (for git)' },
+    { '<leader>gp', ':Git push', 'alias for git push' },
   },
 }
 
