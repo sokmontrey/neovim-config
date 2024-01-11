@@ -15,6 +15,9 @@ local plugins = {
     'jxnblk/vim-mdx-js',
   },
   {
+    'preservim/vim-markdown',
+  },
+  {
     'evanleck/vim-svelte',
   },
   {

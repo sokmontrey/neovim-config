@@ -65,7 +65,15 @@ local all_mappings = {
 
   ['git'] = {
     { '<leader>gi', ':Git<CR>',  'open vim figitive (for git)' },
-    { '<leader>gp', ':Git push', 'alias for git push' },
+    { '<leader>gp', ':Git push ', 'alias for git push' },
+  },
+
+  ['note'] = {
+    {'<leader>p', function()
+      require("nabla").popup({ border = "rounded" })
+      -- " Customize with popup({border = ...})  : `single` (default), `double`, `rounded`
+    end,
+    'open nabla popup' },
   },
 }
 

@@ -4,6 +4,7 @@ return {
     projects = { -- define project roots
       "~/project/*",
       "~/.config/*",
+      "~/obsidian-note/*",
     },
     last_session_on_startup = false,
   },
