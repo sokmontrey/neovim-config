@@ -57,15 +57,11 @@ local all_mappings = {
     { '<leader>ts', ':TermSelect<CR>', 'select terminal' },
   },
 
-  ['git'] = {
-    {'<leader>gi', ':TermExec direction=float name=git cmd="lazygit"<CR>', 'open lazy git in a floating terminal'}
-  },
-
   ['projects'] = {
     { '<leader>pp', ':Telescope neovim-project discover<CR>', 'search for projects' },
     { '<leader>ph', ':Telescope neovim-project history<CR>',  'project history' },
     { '<leader>pl', ':NeovimProjectLoadRecent<CR>',           'load recent project' },
-  }
+  },
 }
 
 for _, group_maps in pairs(all_mappings) do

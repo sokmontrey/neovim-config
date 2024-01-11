@@ -17,6 +17,9 @@ local plugins = {
   {
     'evanleck/vim-svelte',
   },
+  {
+    'tpope/vim-fugitive',
+  },
 }
 
 return plugins
