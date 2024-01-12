@@ -23,6 +23,9 @@ local plugins = {
   {
     'tpope/vim-fugitive',
   },
+  {
+    'rstacruz/vim-closer',
+  },
 }
 
 return plugins
