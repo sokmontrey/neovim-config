@@ -65,7 +65,7 @@ local all_mappings = {
 
   ['git'] = {
     { '<leader>gi', ':Git<CR>',  'open vim figitive (for git)' },
-    { '<leader>gp', ':Git push ', 'alias for git push' },
+    { '<leader>gp', ':Git push origin master', 'alias for git push' },
   },
 
   ['note'] = {
