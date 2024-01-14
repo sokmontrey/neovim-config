@@ -34,9 +34,8 @@ return {
           ['<C-b>'] = cmp.mapping.open_docs(),
           ['<C-S-b>'] = cmp.mapping.close_docs(),
         }),
-
         sources = cmp.config.sources({
-          -- { name = 'nvim_lsp' },
+          { name = 'nvim_lsp' },
           { name = 'luasnip' }, -- For luasnip users.
         }, {
           { name = 'buffer' },

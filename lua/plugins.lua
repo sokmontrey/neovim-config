@@ -9,9 +9,6 @@ local plugins = {
     config = true,
   },
   {
-    'wuelnerdotexe/vim-astro',
-  },
-  {
     'jxnblk/vim-mdx-js',
   },
   {
