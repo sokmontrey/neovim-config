@@ -1,11 +1,19 @@
 local all_mappings = {
   ['preventing fingers injury'] = {
-    { 'k',                'gk',       'move up (including newline)' },
-    { ';',                ':',        'just a replacement' },
-    { '<leader><BS><BS>', ':wqa<CR>', 'save and close all buffers' },
-    { '<ESC>',            ':noh<CR>', 'clear search highlight' },
-    { 'J', ':m \'>+1<CR>gv=gv', 'move block down', {}, 'v' },
-    { 'K', ':m \'<-2<CR>gv=gv', 'move block up',   {}, 'v' },
+    { 'k',                'gk',                'move up (including newline)' },
+    { 'j',                'gj',                'move down (including newline)' },
+    { ';',                ':',                 'just a replacement' },
+    { '<leader><BS><BS>', ':wqa<CR>',          'save and close all buffers' },
+    { '<ESC>',            ':noh<CR>',          'clear search highlight' },
+    { 'J',                ':m \'>+1<CR>gv=gv', 'move block down',              {}, 'v' },
+    { 'K',                ':m \'<-2<CR>gv=gv', 'move block up',                {}, 'v' },
+  },
+
+  ['good navigation practices'] = {
+    {'<C-u>', '<C-u>zz', 'centered scroll up' },
+    {'<C-d>', '<C-d>zz', 'centered scroll down' },
+    {'n',     'nzz',     'centered next' },
+    {'N',     'Nzz',     'centered previous' },
   },
 
   ['window navigation'] = {
@@ -41,6 +49,7 @@ local all_mappings = {
     { '<leader>sd', vim.lsp.buf.definition,     'go to definition' },
     { '<leader>si', vim.lsp.buf.implementation, 'go to implementation' },
     { '<leader>sa', vim.lsp.buf.code_action,    'code action',         {}, { 'n', 'v' } },
+    { '<leader>sr', vim.lsp.buf.rename,         'rename',              {}, { 'n', 'v' } },
   },
 
   ['comment'] = {
@@ -66,16 +75,18 @@ local all_mappings = {
   },
 
   ['git'] = {
-    { '<leader>gi', ':Git<CR>',  'open vim figitive (for git)' },
+    { '<leader>gi', ':Git<CR>',                'open vim figitive (for git)' },
     { '<leader>gp', ':Git push origin master', 'alias for git push' },
   },
 
-  ['note'] = {
-    {'<leader>p', function()
-      require("nabla").popup({ border = "rounded" })
-      -- " Customize with popup({border = ...})  : `single` (default), `double`, `rounded`
-    end,
-    'open nabla popup' },
+  ['harpoon'] = {
+    { '<leader>hh',      ':lua require("harpoon.ui").toggle_quick_menu()<CR>', 'open harpoon menu' },
+    { '<leader>ha',      ':lua require("harpoon.mark").add_file()<CR>',        'add current file' },
+    { '<leader>h1',      ':lua require("harpoon.ui").nav_file(1)<CR>',         'go to file 1' },
+    { '<leader>h2',      ':lua require("harpoon.ui").nav_file(2)<CR>',         'go to file 2' },
+    { '<leader>h3',      ':lua require("harpoon.ui").nav_file(3)<CR>',         'go to file 3' },
+    { '<leader><Tab>',   ':lua require("harpoon.ui").nav_next()<CR>',          'go to next file' },
+    { '<leader><S-Tab>', ':lua require("harpoon.ui").nav_prev()<CR>',          'go to previous file' },
   },
 }
 
