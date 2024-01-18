@@ -2,11 +2,11 @@ local all_mappings = {
   ['preventing fingers injury'] = {
     { 'k',                'gk',                'move up (including newline)' },
     { 'j',                'gj',                'move down (including newline)' },
-    { ';',                ':',                 'just a replacement' },
     { '<leader><BS><BS>', ':wqa<CR>',          'save and close all buffers' },
     { '<ESC>',            ':noh<CR>',          'clear search highlight' },
     { 'J',                ':m \'>+1<CR>gv=gv', 'move block down',              {}, 'v' },
     { 'K',                ':m \'<-2<CR>gv=gv', 'move block up',                {}, 'v' },
+    { '<leader>ss', ':wa<CR>', 'save all' },
   },
 
   ['good navigation practices'] = {
