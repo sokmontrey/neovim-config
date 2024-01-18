@@ -6,7 +6,8 @@ local all_mappings = {
     { '<ESC>',            ':noh<CR>',          'clear search highlight' },
     { 'J',                ':m \'>+1<CR>gv=gv', 'move block down',              {}, 'v' },
     { 'K',                ':m \'<-2<CR>gv=gv', 'move block up',                {}, 'v' },
-    { '<leader>ss', ':wa<CR>', 'save all' },
+    { '<leader>w', ':wa<CR>', 'save all' },
+    { '<leader>qq', ':q<CR>',  'close buffer' },
   },
 
   ['good navigation practices'] = {
