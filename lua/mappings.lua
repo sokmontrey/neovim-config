@@ -7,7 +7,7 @@ local all_mappings = {
     { 'J',                ':m \'>+1<CR>gv=gv', 'move block down',              {}, 'v' },
     { 'K',                ':m \'<-2<CR>gv=gv', 'move block up',                {}, 'v' },
     { '<leader>w', ':wa<CR>', 'save all' },
-    { '<leader>qq', ':q<CR>',  'close buffer' },
+    { '<leader>wq', ':wq<CR>',  'save and close buffer' },
   },
 
   ['good navigation practices'] = {
