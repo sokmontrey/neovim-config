@@ -4,6 +4,7 @@ return {
   config = function ()
     require('telescope').setup({
       defaults = {
+        file_ignore_patterns = { 'node_modules', 'dist', 'build' },
         layout_strategy = 'center',
         layout_config = {
           height = 0.5,
