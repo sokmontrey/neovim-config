@@ -6,15 +6,16 @@ local all_mappings = {
     { '<ESC>',            ':noh<CR>',          'clear search highlight' },
     { 'J',                ':m \'>+1<CR>gv=gv', 'move block down',              {}, 'v' },
     { 'K',                ':m \'<-2<CR>gv=gv', 'move block up',                {}, 'v' },
-    { '<leader>ww', ':wa<CR>', 'save all' },
-    { '<leader>wq', ':wq<CR>',  'save and close buffer' },
+    { '<leader>ww',       ':wa<CR>',           'save all' },
+    { '<leader>wq',       ':wq<CR>',           'save and close window' },
+    { '<leader>qq',       ':q<CR>',            'close window' }
   },
 
   ['good navigation practices'] = {
-    {'<C-u>', '<C-u>zz', 'centered scroll up' },
-    {'<C-d>', '<C-d>zz', 'centered scroll down' },
-    {'n',     'nzz',     'centered next' },
-    {'N',     'Nzz',     'centered previous' },
+    { '<C-u>', '<C-u>zz', 'centered scroll up' },
+    { '<C-d>', '<C-d>zz', 'centered scroll down' },
+    { 'n',     'nzz',     'centered next' },
+    { 'N',     'Nzz',     'centered previous' },
   },
 
   ['window navigation'] = {
@@ -25,8 +26,8 @@ local all_mappings = {
   },
 
   ['tab navigation'] = {
-    { '<Tab>',     ':bn<CR>',       'go to next buffer' },
-    { '<S-Tab>',   ':bp<CR>',       'go to previous buffer' },
+    { '<Tab>',      ':bn<CR>',       'go to next buffer' },
+    { '<S-Tab>',    ':bp<CR>',       'go to previous buffer' },
     { '<leader>x', ':bp | bd#<CR>', 'close buffer' },
   },
 
