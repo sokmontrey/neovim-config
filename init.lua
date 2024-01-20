@@ -23,3 +23,5 @@ require("vim-setup")
 require("lazy").setup("plugins")
 require("mappings")
 
+vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme farin")

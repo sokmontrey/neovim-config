@@ -23,6 +23,21 @@ local plugins = {
   {
     'rstacruz/vim-closer',
   },
+  {
+    'folke/zen-mode.nvim',
+    opts={
+      window = {
+        width = .7,
+        height = 1,
+        backdrop = 1,
+        options = {
+          number = false,
+          relativenumber = false,
+          cursorline = false,
+        },
+      },
+    },
+  },
 }
 
 return plugins

@@ -5,6 +5,7 @@ return {
       "~/project/*",
       "~/.config/*",
       "~/obsidian-note/*",
+      "~/georgebrown/*",
     },
     last_session_on_startup = false,
   },
