@@ -37,8 +37,10 @@ local all_mappings = {
 
     ['telescope (searcher)'] = {
         { '<leader>ff', ':Telescope find_files<CR>', 'find file' },
+        { '<A-f>', ':Telescope find_files<CR>', 'find file' },
         { '<leader>fg', ':Telescope live_grep<CR>',  'live grep (searching for text)' },
         { '<leader>fb', ':Telescope buffers<CR>',    'find buffer' },
+        { '<A-b>', ':Telescope buffers<CR>',    'find buffer' },
     },
 
     ['nvim-tree (file explorer)'] = {
@@ -83,10 +85,11 @@ local all_mappings = {
 
     ['harpoon'] = {
         { '<leader>hh',      ':lua require("harpoon.ui").toggle_quick_menu()<CR>', 'open harpoon menu' },
+        { '<A-h>',           ':lua require("harpoon.ui").toggle_quick_menu()<CR>', 'open harpoon menu' },
         { '<leader>ha',      ':lua require("harpoon.mark").add_file()<CR>',        'add current file' },
         -- check the bottom of the file for Alt + n harpoon mappings
-        { '<leader><Tab>',   ':lua require("harpoon.ui").nav_next()<CR>',          'go to next file' },
-        { '<leader><S-Tab>', ':lua require("harpoon.ui").nav_prev()<CR>',          'go to previous file' },
+        { '<A-Tab>',   ':lua require("harpoon.ui").nav_next()<CR>',          'go to next file' },
+        { '<A-S-Tab>', ':lua require("harpoon.ui").nav_prev()<CR>',          'go to previous file' },
     },
 }
 
