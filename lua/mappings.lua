@@ -84,9 +84,9 @@ local all_mappings = {
   ['harpoon'] = {
     { '<leader>hh',      ':lua require("harpoon.ui").toggle_quick_menu()<CR>', 'open harpoon menu' },
     { '<leader>ha',      ':lua require("harpoon.mark").add_file()<CR>',        'add current file' },
-    { '<leader>h1',      ':lua require("harpoon.ui").nav_file(1)<CR>',         'go to file 1' },
-    { '<leader>h2',      ':lua require("harpoon.ui").nav_file(2)<CR>',         'go to file 2' },
-    { '<leader>h3',      ':lua require("harpoon.ui").nav_file(3)<CR>',         'go to file 3' },
+    { '<leader>11',      ':lua require("harpoon.ui").nav_file(1)<CR>',         'go to file 1' },
+    { '<leader>22',      ':lua require("harpoon.ui").nav_file(2)<CR>',         'go to file 2' },
+    { '<leader>33',      ':lua require("harpoon.ui").nav_file(3)<CR>',         'go to file 3' },
     { '<leader><Tab>',   ':lua require("harpoon.ui").nav_next()<CR>',          'go to next file' },
     { '<leader><S-Tab>', ':lua require("harpoon.ui").nav_prev()<CR>',          'go to previous file' },
   },
