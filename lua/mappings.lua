@@ -14,6 +14,12 @@ local all_mappings = {
     { '<leader>P',        'ygv"+p',         'yank before paste from clipboard', {}, 'v' },
   },
 
+  ['note'] = {
+    { '<leader>nn', function() 
+      require('global-note').toggle_note()
+    end, 'open global notes' },
+  },
+
   ['good navigation practices'] = {
     { '{',     '<C-u>zz', 'alias for C-u ' },
     { '}',     '<C-d>zz', 'alias for C-d ' },
