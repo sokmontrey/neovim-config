@@ -6,6 +6,8 @@ return {
       "~/.config/*",
       "~/obsidian-note/*",
       "~/georgebrown/*",
+      "~/project/unity/*",
+      "~/ieee/*",
     },
     last_session_on_startup = false,
   },
