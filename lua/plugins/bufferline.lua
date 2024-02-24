@@ -1,6 +1,6 @@
 return {
   'akinsho/bufferline.nvim',
-  config = function ()
+  config = false,
     -- local bufferline = require("bufferline")
     -- bufferline.setup({
     --   options = {
@@ -18,5 +18,5 @@ return {
     --     },
     --   },
     -- })
-  end
+  -- end
 }

@@ -15,7 +15,7 @@ local all_mappings = {
   },
 
   ['note'] = {
-    { '<leader>nn', function() 
+    { '<leader>nn', function()
       require('global-note').toggle_note()
     end, 'open global notes' },
   },
@@ -54,9 +54,14 @@ local all_mappings = {
     { '<A-b>',      ':Telescope buffers<CR>',    'find buffer' },
   },
 
-  ['nvim-tree (file explorer)'] = {
-    { '<leader>e', ':NvimTreeToggle<CR>', 'toggle file explorer' },
-    { '<C-n>',     ':NvimTreeClose<CR>',  'close file explorer' },
+  -- ['nvim-tree (file explorer)'] = {
+  --   { '<leader>e', ':NvimTreeToggle<CR>', 'toggle file explorer' },
+  --   { '<C-n>',     ':NvimTreeClose<CR>',  'close file explorer' },
+  -- },
+
+  ['telescope-file-browser'] = {
+    { '<leader>e', ':Telescope file_browser<CR><ESC>', 'toggle file explorer' },
+    { '<A-e>',     ':Telescope file_browser<CR><ESC>', 'toggle file explorer' },
   },
 
   ['lsp'] = {
@@ -65,6 +70,7 @@ local all_mappings = {
     { '<leader>si', vim.lsp.buf.implementation, 'go to implementation' },
     { '<leader>sa', vim.lsp.buf.code_action,    'code action',         {}, { 'n', 'v' } },
     { '<leader>sr', vim.lsp.buf.rename,         'rename',              {}, { 'n', 'v' } },
+    { '<leader>se', vim.diagnostic.open_float,  'open diagnostics' },
   },
 
   ['comment'] = {
