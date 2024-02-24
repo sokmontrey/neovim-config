@@ -6,7 +6,7 @@ return {
       options = {
         section_separators = { left = '', right = '' },
         component_separators = { left = '', right = '' },
-        theme = "iceberg_dark",
+        theme = "ayu_dark",
       },
       sections = {
         lualine_a = {'mode'},
