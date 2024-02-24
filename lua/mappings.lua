@@ -54,14 +54,8 @@ local all_mappings = {
     { '<A-b>',      ':Telescope buffers<CR>',    'find buffer' },
   },
 
-  -- ['nvim-tree (file explorer)'] = {
-  --   { '<leader>e', ':NvimTreeToggle<CR>', 'toggle file explorer' },
-  --   { '<C-n>',     ':NvimTreeClose<CR>',  'close file explorer' },
-  -- },
-
-  ['telescope-file-browser'] = {
-    { '<leader>e', ':Telescope file_browser<CR><ESC>', 'toggle file explorer' },
-    { '<A-e>',     ':Telescope file_browser<CR><ESC>', 'toggle file explorer' },
+  ['file-explorer'] = {
+    { '<leader>e', ':NvimTreeToggle<CR>', 'find file in file explorer' },
   },
 
   ['lsp'] = {

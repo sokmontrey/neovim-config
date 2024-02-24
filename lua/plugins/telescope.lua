@@ -3,11 +3,8 @@ return {
   tag = '0.1.5',
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope-file-browser.nvim"
   },
   config = function()
-    local fb_actions = require "telescope._extensions.file_browser.actions"
-
     require('telescope').setup({
       defaults = {
         prompt_prefix = '🔍 ',
@@ -24,20 +21,7 @@ return {
         winblend = 10,
         padding = true,
       },
-      extensions = {
-        file_browser = {
-          theme = "ivy",
-          mapping = {
-            ["n"] = {
-              ["a"] = fb_actions.create,
-              ["c"] = fb_actions.copy,
-              ["o"] = function() end,
-            },
-          },
-        },
-      },
     })
 
-    require('telescope').load_extension('file_browser')
   end
 }
