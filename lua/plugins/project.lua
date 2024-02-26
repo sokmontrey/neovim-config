@@ -8,6 +8,7 @@ return {
       "~/georgebrown/*",
       "~/project/unity/*",
       "~/ieee/*",
+      "~/sokmontrey/",
     },
     last_session_on_startup = false,
   },
