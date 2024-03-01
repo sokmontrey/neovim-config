@@ -27,5 +27,7 @@ return {
         markdown = true,
       },
     }
+
+    vim.cmd("Copilot disable")
   end,
 }
