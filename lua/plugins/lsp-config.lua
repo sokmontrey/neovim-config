@@ -24,9 +24,16 @@ return {
           "clangd",
           "svelte",
           "sqls",
-          "pyright",
         },
       })
+    end
+  },
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    opts = {},
+    config = function(_, opts)
+      require 'lsp_signature'.setup(opts)
     end
   },
   {
@@ -35,21 +42,21 @@ return {
       local lspconfig = require("lspconfig")
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-      local servers = {
-        "sqls",
-        "clangd",
-        "ast_grep",
-        "lua_ls",
-        "tsserver",
-        "astro",
-        "svelte",
-        "csharp_ls",
-        "pyright",
-      }
+      local servers = { "sqls", "clangd", "ast_grep", "lua_ls", "tsserver", "astro", "svelte", "csharp_ls" }
+
+      function on_attach(client, bufnr)
+        require "lsp_signature".on_attach({
+          bind = true,
+          handler_opts = {
+            border = "rounded"
+          }
+        }, bufnr)
+      end
 
       for _, lsp in ipairs(servers) do
         lspconfig[lsp].setup {
           capabilities = capabilities,
+          on_attach = on_attach,
         }
       end
 

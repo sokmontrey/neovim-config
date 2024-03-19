@@ -8,7 +8,7 @@ return {
       "~/georgebrown/*",
       "~/project/unity/*",
       "~/ieee/*",
-      "~/skill-ontario/*",
+      "~/project/skill-ontario/*",
     },
     last_session_on_startup = false,
   },

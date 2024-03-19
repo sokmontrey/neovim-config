@@ -24,5 +24,5 @@ require("lazy").setup("plugins")
 require("mappings")
 
 vim.cmd("colorscheme ayu")
--- vim.cmd("colorscheme tokyonight")
+-- vim.cmd("colorscheme tokyonight-night")
 -- vim.cmd("colorscheme poimandres")

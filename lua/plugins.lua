@@ -31,7 +31,7 @@ local plugins = {
     config = function()
       require('global-note').setup()
     end
-  }
+  },
 }
 
 return plugins

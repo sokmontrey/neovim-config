@@ -1,3 +1,5 @@
+local harpoon = require('harpoon')
+
 local all_mappings = {
   ['preventing fingers injury'] = {
     { 'k',                'gk',             'move up (including newline)' },
@@ -37,8 +39,8 @@ local all_mappings = {
   },
 
   ['tab navigation'] = {
-    { '<Tab>',     ':bn<CR>',       'go to next buffer' },
-    { '<S-Tab>',   ':bp<CR>',       'go to previous buffer' },
+    -- { '<Tab>',     ':bn<CR>',       'go to next buffer' },
+    -- { '<S-Tab>',   ':bp<CR>',       'go to previous buffer' },
     { '<leader>x', ':bp | bd#<CR>', 'close buffer' },
   },
 
@@ -64,7 +66,7 @@ local all_mappings = {
     { '<leader>si', vim.lsp.buf.implementation, 'go to implementation' },
     { '<leader>sa', vim.lsp.buf.code_action,    'code action',         {}, { 'n', 'v' } },
     { '<leader>sr', vim.lsp.buf.rename,         'rename',              {}, { 'n', 'v' } },
-    { '<leader>se', vim.diagnostic.open_float,  'open diagnostics' },
+    { '<A-k>',      vim.diagnostic.open_float,  'open diagnostics' },
   },
 
   ['comment'] = {
@@ -95,12 +97,11 @@ local all_mappings = {
   },
 
   ['harpoon'] = {
-    { '<leader>hh', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', 'open harpoon menu' },
-    { '<A-h>',      ':lua require("harpoon.ui").toggle_quick_menu()<CR>', 'open harpoon menu' },
-    { '<leader>ha', ':lua require("harpoon.mark").add_file()<CR>',        'add current file' },
+    { '<A-a>',     function() harpoon:list():append() end,                      'add current file' },
+    { '<A-h>',     function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, 'open harpoon menu' },
     -- check the bottom of the file for Alt + n harpoon mappings
-    { '<A-Tab>',    ':lua require("harpoon.ui").nav_next()<CR>',          'go to next file' },
-    { '<A-S-Tab>',  ':lua require("harpoon.ui").nav_prev()<CR>',          'go to previous file' },
+    { '<A-Tab>',   function() harpoon:list():next() end,                        'go to next file' },
+    { '<A-S-Tab>', function() harpoon:list():prev() end,                        'go to previous file' },
   },
 }
 
@@ -109,7 +110,9 @@ local all_mappings = {
 for i = 1, 9 do
   table.insert(all_mappings['harpoon'], {
     '<A-' .. i .. '>',
-    ':lua require("harpoon.ui").nav_file(' .. i .. ')<CR>',
+    function()
+      harpoon:list():select(i)
+    end,
     'go to file ' .. i
   })
 end
