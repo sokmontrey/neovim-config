@@ -20,4 +20,13 @@ return {
   {
     "bluz71/vim-moonfly-colors"
   },
+  {
+    "craftzdog/solarized-osaka.nvim"
+  },
+  {
+    "rebelot/kanagawa.nvim"
+  },
+  {
+    "bluz71/vim-nightfly-colors"
+  }
 }
