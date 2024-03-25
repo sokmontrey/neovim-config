@@ -1,3 +1,58 @@
+local icons = {
+  Namespace = "󰌗",
+  Text = "󰉿",
+  Method = "󰆧",
+  Function = "󰆧",
+  Constructor = "",
+  Field = "󰜢",
+  Variable = "󰀫",
+  Class = "󰠱",
+  Interface = "",
+  Module = "",
+  Property = "󰜢",
+  Unit = "󰑭",
+  Value = "󰎠",
+  Enum = "",
+  Keyword = "󰌋",
+  Snippet = "",
+  Color = "󰏘",
+  File = "󰈚",
+  Reference = "󰈇",
+  Folder = "󰉋",
+  EnumMember = "",
+  Constant = "󰏿",
+  Struct = "󰙅",
+  Event = "",
+  Operator = "󰆕",
+  TypeParameter = "󰊄",
+  Table = "",
+  Object = "󰅩",
+  Tag = "",
+  Array = "[]",
+  Boolean = "",
+  Number = "",
+  Null = "󰟢",
+  String = "󰉿",
+  Calendar = "",
+  Watch = "󰥔",
+  Package = "",
+  Copilot = "",
+  Codeium = "",
+  TabNine = "",
+}
+
+local formatting_style = {
+  fields = { "kind", "abbr", "menu" },
+
+  format = function(_, item)
+    local icon = icons[item.kind]
+    icon = " " .. icon .. " "
+    item.menu = "   (" .. item.kind .. ")"
+    item.kind = icon
+    return item
+  end,
+}
+
 return {
   {
     'hrsh7th/cmp-nvim-lsp'
@@ -24,9 +79,15 @@ return {
         },
 
         window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
+          completion = {
+            padding = 1,
+            winhighlight = "Normal:Pmenu,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None",
+          },
+          documentation = {
+            winhighlight = "Normal:Pmenu,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None",
+          },
         },
+        formatting = formatting_style,
 
         mapping = cmp.mapping.preset.insert({
           ['<CR>'] = cmp.mapping.confirm({ select = true }),
@@ -53,7 +114,6 @@ return {
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
-        }, {
           { name = 'buffer' },
         })
       })

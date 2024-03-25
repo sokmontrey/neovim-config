@@ -1,4 +1,4 @@
-local harpoon = require('harpoon')
+vim.g.cmd = '\"dotnet run\"'
 
 local all_mappings = {
   ['preventing fingers injury'] = {
@@ -14,12 +14,6 @@ local all_mappings = {
     { '<leader>y',        '"+y',            'copy to clipboard',                {}, 'v' },
     { '<leader>P',        '"+p',            'paste from clipboard' },
     { '<leader>P',        'ygv"+p',         'yank before paste from clipboard', {}, 'v' },
-  },
-
-  ['note'] = {
-    { '<leader>nn', function()
-      require('global-note').toggle_note()
-    end, 'open global notes' },
   },
 
   ['good navigation practices'] = {
@@ -39,8 +33,6 @@ local all_mappings = {
   },
 
   ['tab navigation'] = {
-    -- { '<Tab>',     ':bn<CR>',       'go to next buffer' },
-    -- { '<S-Tab>',   ':bp<CR>',       'go to previous buffer' },
     { '<leader>x', ':bp | bd#<CR>', 'close buffer' },
   },
 
@@ -57,7 +49,7 @@ local all_mappings = {
   },
 
   ['file-explorer'] = {
-    { '<leader>e', ':NvimTreeToggle<CR>', 'find file in file explorer' },
+    { '<leader>e', ':NvimTreeToggle<CR>', 'file explorer' },
   },
 
   ['lsp'] = {
@@ -79,10 +71,10 @@ local all_mappings = {
   },
 
   ['terminal'] = {
-    { '<C-Space>',  ':ToggleTerm size=75 direction=vertical<CR>', 'toggle terminal',                       {}, 'n' },
-    { '<C-Space>',  '<C-\\><C-n>:q<CR>',                          'close terminal (during terminal mode)', {}, 't' },
-    { '<ESC>',      '<C-\\><C-n>',                                'escape terminal mode',                  {}, 't' },
-    { '<leader>ts', ':TermSelect<CR>',                            'select terminal' },
+    { '<C-Space>',  ':ToggleTerm size=65 direction=vertical<CR>',                     'toggle terminal', {}, 'n' },
+    { '<C-Space>',  '<CMD>ToggleTerm<CR>',                                            'toggle terminal', {}, 't' },
+    { '<A-r>',      ':execute "TermExec size=65 direction=vertical cmd=". g:cmd<CR>', 'toggle terminal', {}, 'n' },
+    { '<leader>ts', ':TermSelect<CR>',                                                'select terminal' },
   },
 
   ['projects'] = {
@@ -95,27 +87,7 @@ local all_mappings = {
     { '<leader>gi', ':Git<CR>',                'open vim figitive (for git)' },
     { '<leader>gp', ':Git push origin master', 'alias for git push' },
   },
-
-  ['harpoon'] = {
-    { '<A-a>',     function() harpoon:list():append() end,                      'add current file' },
-    { '<A-h>',     function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, 'open harpoon menu' },
-    -- check the bottom of the file for Alt + n harpoon mappings
-    { '<A-Tab>',   function() harpoon:list():next() end,                        'go to next file' },
-    { '<A-S-Tab>', function() harpoon:list():prev() end,                        'go to previous file' },
-  },
 }
-
--- Alt + n harpoon mappings
--- Alt + 1 to Alt + 9
-for i = 1, 9 do
-  table.insert(all_mappings['harpoon'], {
-    '<A-' .. i .. '>',
-    function()
-      harpoon:list():select(i)
-    end,
-    'go to file ' .. i
-  })
-end
 
 for _, group_maps in pairs(all_mappings) do
   for _, map in pairs(group_maps) do

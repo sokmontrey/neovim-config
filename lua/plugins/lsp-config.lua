@@ -42,9 +42,19 @@ return {
       local lspconfig = require("lspconfig")
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-      local servers = { "sqls", "clangd", "ast_grep", "lua_ls", "tsserver", "astro", "svelte", "csharp_ls" }
+      local servers = {
+        "sqls",
+        "clangd",
+        "ast_grep",
+        "lua_ls",
+        "tsserver",
+        "astro",
+        "svelte",
+        "csharp_ls",
+        -- "omnisharp"
+      }
 
-      function on_attach(client, bufnr)
+      local function on_attach(_, bufnr)
         require "lsp_signature".on_attach({
           bind = true,
           handler_opts = {
@@ -64,7 +74,7 @@ return {
         vim.lsp.diagnostic.on_publish_diagnostics, {
           underline = true,
           virtual_text = true,
-          signs = false,
+          signs = true,
           update_in_insert = false,
         }
       )
