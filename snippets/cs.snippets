@@ -1,0 +1,255 @@
+#########################
+#  classes and structs  #
+#########################
+
+snippet namespace "namespace" b
+	namespace SkillOntarioCoding {
+		${VISUAL}$0
+	}
+
+snippet class "class" w
+	public class `expand('%:t:r')`${1}
+	{
+		$0
+	}
+
+snippet struct "struct" w
+	public struct ${1:`expand('%:t:r')`}
+	{
+		$0
+	}
+
+snippet interface "interface" w
+	public interface ${1:`expand('%:t:r')`} {
+		$0
+	}
+
+snippet enum "enumeration" b
+	public enum ${1:`expand('%:t:r')`} { 
+		${2:ITEM} 
+	};
+
+############
+#  Main()  #
+############
+
+snippet sim "static int main" b
+	public static int Main(string[] args)
+	{
+		$0
+	}
+
+snippet svm "static void main" b
+	public static void Main(string[] args)
+	{
+		$0
+	}
+
+###########
+#  loops  #
+###########
+
+snippet for "for loop" b
+	for (int i = ${2:0}; i < ${1:10}; i++)
+	{
+		${VISUAL}$0
+	}
+
+snippet forr "for loop (reverse)" b
+	for (int ${1:i} = ${2:10}; $1 >= 0; $1--)
+	{
+		${VISUAL}$0
+	}
+
+snippet foreach "foreach loop" b
+	foreach (${3:var} ${2:item} in ${1:items})
+	{
+		${VISUAL}$0
+	}
+
+snippet while "while loop" b
+	while (${1:true})
+	{
+		${VISUAL}$0
+	}
+
+###############
+#  branching  #
+###############
+
+snippet if "if statement" b
+	if ($1)
+	{
+		${VISUAL}$0
+	}
+
+snippet ife "if else statement" b
+	if ($1)
+	{
+		${VISUAL}$0
+	}
+	else
+	{
+	}
+
+snippet elif "else if" b
+	else if ($1)
+	{
+		$0
+	}
+
+snippet elseif "else if" b
+	else if ($1)
+	{
+		$0
+	}
+
+snippet ifnn "if not null" b
+	if ($1 != null)
+	{
+		${VISUAL}$0
+	}
+
+snippet switch "switch statement" b
+	switch (${1:statement})
+	{
+		case ${2:value}:
+			break;
+
+		default:
+			$0break;
+	}
+
+snippet case "case" b
+	case ${1:value}:
+		$2
+		break;
+
+##############
+#  wrappers  #
+##############
+
+snippet using "using statement" b
+	using (${1:resource})
+	{
+		${VISUAL}$0
+	}
+
+############################
+#          file            #
+############################
+
+snippet swriter
+	using(StreamWriter sw = new StreamWriter(path)) {
+		${VISUAL}${0}
+	}
+
+snippet sw
+	sw.WriteLine(${1:line});${0}
+
+snippet sreader
+	using(StreamReader sr = new StreamReader(path)) {
+		${VISUAL}${0}
+	}
+
+snippet sr
+	${1:line} = sr.ReadLine();
+
+############################
+#  feedback and debugging  #
+############################
+
+snippet cw "Console.WriteLine" b
+	Console.WriteLine("$1");
+
+snippet cr "Console.ReadLine" b
+	Console.ReadLine();
+
+snippet ck
+	Console.ReadKey(true);
+
+snippet cs
+	Console.${1}
+
+#############
+#  methods  #
+#############
+
+snippet mth "Method" b
+	${1:public} ${2:void} ${3:MyMethod}(${4})
+	{
+		$0
+	}
+
+snippet mths "Static method" b
+	${1:public} static ${2:void} ${3:MyMethod}(${4})
+	{
+		$0
+	}
+
+###############
+# constructor #
+###############
+
+snippet ctor "Constructor" b
+	${1:public} ${2:`expand('%:t:r')`}(${3})
+	{
+		$0
+	}
+
+##############
+#   Custom   #
+##############
+
+snippet val
+	public Validator ${1:Name}() {
+		this.funcs.Add(v => {
+			bool is_valid = ${2};
+			if(is_valid)
+				return (true, "");
+			else 
+				return (false, "${3}");
+		});
+		return this;
+	}$0
+
+snippet check
+	public (bool, string) Check(string v) {
+		foreach(var f in funcs) {
+			(bool is_valid, string msg) = f.Invoke(v);
+			if(!is_valid) return (false, msg);
+		}
+		return (true, "");
+	}
+
+snippet ifk
+	if(key_info.Key != ConsoleKey.${1:Enter}) return;${0}
+
+snippet ifk2
+	if(key_info.Key == ConsoleKey.${1:Enter}) {
+		${2}
+	} 
+
+snippet kif
+	key_info${0}
+
+snippet kif2
+	ConsoleKeyInfo key_info${0}
+
+snippet kif3
+	ConsoleKeyInfo key_info = Console.ReadKey(true);${0}
+
+snippet F
+	cursor.Focused${0}
+
+snippet M
+	cursor.Max${0}
+
+snippet isf
+	is_focused${0}
+	
+snippet isf2
+	bool is_focused = false${0}
+
+snippet option
+	(string, Action)[]${0}
