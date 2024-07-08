@@ -62,7 +62,7 @@ local all_mappings = {
 
 	-- git
 	{ "<leader>gi", "<cmd>Git<CR>", "open vim figitive (for git)" },
-	{ "<leader>gp", "<cmd>Git push origin master", "alias for git push" },
+	{ "<leader>gp", "<cmd>Git push origin master<CR>", "alias for git push" },
 }
 
 for _, map in pairs(all_mappings) do
