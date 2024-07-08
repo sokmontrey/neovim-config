@@ -17,10 +17,10 @@ return {
 		local OmniSharpPath = "C:\\Users\\sokmo\\AppData\\Local\\omnisharp-vim\\omnisharp-roslyn\\Omnisharp.exe"
 
 		local servers = {
-			clangd = {},
 			pyright = {},
 			tsserver = {},
 			lua_ls = {},
+			astro = {},
 			omnisharp = {
 				capabilities = capabilities,
 				root_dir = util.root_pattern("*.sln", "*.csproj", "*.cs"),

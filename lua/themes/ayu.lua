@@ -1,4 +1,4 @@
 return {
-	"folke/tokyonight.nvim",
+	"ayu-theme/ayu-vim",
 	priority = 1000,
 }
