@@ -55,11 +55,6 @@ local all_mappings = {
 	{ "<A-f>", tele_builtin.find_files, "telescope find files" },
 	{ "<leader>tk", tele_builtin.keymaps, "telescope show keymaps" },
 
-	-- projects
-	{ "<leader>pp", "<cmd>Telescope neovim-project discover<CR>", "search for projects" },
-	{ "<leader>ph", "<cmd>Telescope neovim-project history<CR>", "project history" },
-	{ "<leader>pl", "<cmd>NeovimProjectLoadRecent<CR>", "load recent project" },
-
 	-- git
 	{ "<leader>gi", "<cmd>Git<CR>", "open vim figitive (for git)" },
 	{ "<leader>gp", "<cmd>Git push origin master<CR>", "alias for git push" },
