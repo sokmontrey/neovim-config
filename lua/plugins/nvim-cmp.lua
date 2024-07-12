@@ -109,10 +109,11 @@ return {
 			}),
 
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp", group_index = 2 },
-				{ name = "luasnip", group_index = 2 },
-				{ name = "buffer", group_index = 2 },
-				{ name = "copilot", group_index = 1 },
+				{ name = "copilot", priority = 1200 },
+				{ name = "luasnip", priority = 1100 },
+				{ name = "nvim_lsp", priority = 1000 },
+				{ name = "path", priority = 900 },
+				{ name = "buffer", priority = 700 },
 			}),
 		})
 	end,
