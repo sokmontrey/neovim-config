@@ -1,4 +1,4 @@
 return {
-	"ayu-theme/ayu-vim",
+	"Shatur/neovim-ayu",
 	priority = 1000,
 }
