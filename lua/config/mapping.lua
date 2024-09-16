@@ -1,6 +1,20 @@
 local tele = require('telescope.builtin')
 
 local all_mappings = {
+	-- preventing fingers injuries
+	{ "k", "gk", "move up (including newline)" },
+	{ "j", "gj", "move down (including newline)" },
+	{ "<ESC>", vim.cmd.noh, "clear search highlight" },
+	{ "<leader>wq", "<cmd>NvimTreeClose<CR><cmd>waq<CR>", "close nvimtree before save exit" },
+	{ "<leader>ww", "<cmd>wa<CR>", "close nvimtree before save all exit" },
+	{ "<leader>y", '"+y', "copy to clipboard", "v" },
+	{ "<leader>P", '"+p', "paste from clipboard" },
+	{ "<leader>P", 'ygv"+p', "yank before paste from clipboard", "v" },
+	{ "<C-u>", "<C-u>zz", "centered scroll up" },
+	{ "<C-d>", "<C-d>zz", "centered scroll down" },
+	{ "n", "nzz", "centered next" },
+	{ "N", "Nzz", "centered previous" },
+
 	-- explorer
 	{ "<leader>e", vim.cmd.NvimTreeToggle, "file explorer" },
 
@@ -12,7 +26,7 @@ local all_mappings = {
 
 	-- comment 
 	-- <leader>/ (check plugins/comment.lua)
-	
+
 	-- telescope
 	{ "<A-f>", tele.find_files, "find file using telescope" },
 	{ "<leader>fg", tele.grep_string, "string grep with telescope" },
@@ -20,6 +34,18 @@ local all_mappings = {
 	-- git
 	{ "<leader>gi", "<cmd>Git<CR>", "open vim figitive (for git)" },
 	{ "<leader>gp", "<cmd>Git push origin master<CR>", "alias for git push" },
+
+	-- lsp (check plugins/lsp-zero.lua for updated version)
+	-- vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+	-- vim.keymap.set("n", "<A-k>", vim.diagnostic.open_float, opts)
+	-- vim.keymap.set("n", "<leader>sd", vim.lsp.buf.definition, opts)
+	-- vim.keymap.set("n", "<leader>si", vim.lsp.buf.implementation, opts)
+	-- vim.keymap.set("n", "<leader>sa", vim.lsp.buf.code_action, opts)
+	-- vim.keymap.set("n", "<leader>sr", vim.lsp.buf.rename, opts)
+
+	-- terminal
+	{ "<leader><leader>", "<cmd>ToggleTerm size=65 direction=vertical<CR>", "toggle terminal", "n" },
+	{ "<leader><leader>", "<cmd>ToggleTerm<CR>", "toggle terminal", "t" },
 }
 
 for _, map in pairs(all_mappings) do
