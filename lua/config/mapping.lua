@@ -46,6 +46,9 @@ local all_mappings = {
 	-- terminal
 	{ "<leader><leader>", "<cmd>ToggleTerm size=65 direction=vertical<CR>", "toggle terminal", "n" },
 	{ "<leader><leader>", "<cmd>ToggleTerm<CR>", "toggle terminal", "t" },
+
+	-- color picker
+	{ "<leader>cp", "<cmd>CccPick<CR>", "turn on color picker"},
 }
 
 for _, map in pairs(all_mappings) do

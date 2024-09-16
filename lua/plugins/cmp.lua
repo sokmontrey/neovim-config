@@ -1,5 +1,5 @@
 local formatting_style = {
-	fields = { "kind", "abbr", "menu" },
+	fields = { "abbr", "kind", "menu" },
 
 	format = function(_, item)
 		return item

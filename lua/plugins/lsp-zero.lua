@@ -1,3 +1,13 @@
+local function filter(t, filterIter)
+  local out = {}
+
+  for k, v in pairs(t) do
+    if filterIter(v, k, t) then out[k] = v end
+  end
+
+  return out
+end
+
 return {
 	'VonHeikemen/lsp-zero.nvim',
 	dependencies = {
@@ -37,11 +47,16 @@ return {
 			'astro',
 			'pyright',
 			'clangd',
+			'csharp_ls', -- MUST Run dotnet tool install -g csharp-ls --version 0.5.0 for .NET 6.0
 		}
+
+		local ensure_installed = filter(servers, function(server)
+			return server ~= 'csharp_ls'
+		end)
 
 		require('mason').setup()
 		require('mason-lspconfig').setup({
-			ensure_installed = servers,
+			ensure_installed = ensure_installed,
 			handlers = {
 				function(server_name)
 					lspconf[server_name].setup({})

@@ -15,6 +15,8 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+vim.cmd("set pumheight=10")
+
 -- Highlight when yanking (copying) text
 -- (from kickstart.nvim)
 vim.api.nvim_create_autocmd("TextYankPost", {
