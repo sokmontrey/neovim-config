@@ -7,10 +7,12 @@ snippet namespace "namespace" b
 		${VISUAL}$0
 	}
 
+
 snippet class "class" w
 	public class `expand('%:t:r')`${1} {
 		$0
 	}
+
 
 snippet struct "struct" w
 	public struct ${1:`expand('%:t:r')`} {

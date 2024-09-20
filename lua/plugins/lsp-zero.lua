@@ -1,22 +1,51 @@
+local servers = {
+	'lua_ls',
+	'svelte',
+	'ts_ls',
+	'astro',
+	'pyright',
+	'clangd',
+	'csharp_ls', -- MUST Run dotnet tool install -g csharp-ls --version 0.5.0 for .NET 6.0
+	'tailwindcss',
+	'cssls',
+	'prettier',
+	'jdtls',
+}
+
+local dont_install = {
+	'csharp_ls',
+	'tailwindcss',
+}
+
 local function filter(t, filterIter)
-  local out = {}
+	local out = {}
 
-  for k, v in pairs(t) do
-    if filterIter(v, k, t) then out[k] = v end
-  end
+	for index, value in pairs(t) do
+		if filterIter(value, index, t) then out[index] = value end
+	end
 
-  return out
+	return out
+end
+
+local function has (t, val)
+    for _, value in ipairs(t) do
+        if value == val then
+            return true
+        end
+    end
+
+    return false
 end
 
 return {
 	'VonHeikemen/lsp-zero.nvim',
 	dependencies = {
-		{'williamboman/mason.nvim'},
-		{'williamboman/mason-lspconfig.nvim'},
-		{'neovim/nvim-lspconfig'},
+		{ 'williamboman/mason.nvim' },
+		{ 'williamboman/mason-lspconfig.nvim' },
+		{ 'neovim/nvim-lspconfig' },
 	},
 
-	config = function ()
+	config = function()
 		local lsp_zero = require('lsp-zero')
 		local lspconf = require('lspconfig')
 
@@ -26,8 +55,9 @@ return {
 			vim.keymap.set("n", "<A-k>", vim.diagnostic.open_float, opts)
 			vim.keymap.set("n", "<leader>sd", vim.lsp.buf.definition, opts)
 			vim.keymap.set("n", "<leader>si", vim.lsp.buf.implementation, opts)
-			vim.keymap.set("n", "<leader>sa", vim.lsp.buf.code_action, opts)
+			vim.keymap.set({ "n", "v" }, "<leader>sa", vim.lsp.buf.code_action, opts)
 			vim.keymap.set("n", "<leader>sr", vim.lsp.buf.rename, opts)
+			vim.keymap.set("n", "<leader>sf", "<cmd>LspZeroFormat<CR>", opts)
 		end)
 
 		lsp_zero.extend_lspconfig({
@@ -40,18 +70,8 @@ return {
 		----------------------- LSP -----------------------
 		---------------------------------------------------
 
-		local servers = {
-			'lua_ls',
-			'svelte',
-			'ts_ls',
-			'astro',
-			'pyright',
-			'clangd',
-			'csharp_ls', -- MUST Run dotnet tool install -g csharp-ls --version 0.5.0 for .NET 6.0
-		}
-
 		local ensure_installed = filter(servers, function(server)
-			return server ~= 'csharp_ls'
+			return not has(dont_install, server)
 		end)
 
 		require('mason').setup()
