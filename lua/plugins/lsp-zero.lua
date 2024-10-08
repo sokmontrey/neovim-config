@@ -10,6 +10,9 @@ local servers = {
 	'cssls',
 	'prettier',
 	'jdtls',
+	'phpactor',
+	'emmet_ls',
+	'codelldb',
 }
 
 local dont_install = {
@@ -82,6 +85,11 @@ return {
 					lspconf[server_name].setup({})
 				end,
 			},
+			clangd = function()
+				require('lspconfig').clangd.setup({
+					cmd = {"clangd", "--header-insertion=never"},  -- Avoid annoying includes
+				})
+			end
 			-- this is the "custom handler" for `example_server`
 			-- example_server = function()
 			--   require('lspconfig').example_server.setup({
