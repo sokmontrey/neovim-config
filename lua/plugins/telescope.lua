@@ -11,7 +11,7 @@ return {
 			defaults = {
 				prompt_prefix = '🔍 ',
 				selection_caret = '❯ ',
-				file_ignore_patterns = { 'node_modules', 'obj', 'bin' },
+				file_ignore_patterns = { 'node_modules', 'obj', 'bin', '.git' },
 				layout_strategy = 'center',
 				layout_config = {
 				  height = 0.6,
