@@ -65,6 +65,22 @@ local all_mappings = {
 	{ '<leader>pp',       require('utils.build').compile_and_run,                             "compile current code and run" },
 	{ '<leader>pc',       require('utils.build').compile,                                     "compile current code" },
 	{ '<leader>pr',       require('utils.build').run,                                         "run current code" },
+	-- c++ competitive programming
+	{ '<leader>cip', function()
+		local filename = "./inputs/" .. vim.fn.expand('%:t:r') .. ".txt"
+		local f = io.open(filename, 'r')
+		if f == nil then f = io.open(filename, "w") end
+		vim.cmd("e " .. filename)
+		io.close(f)
+	end, 'create {filename.cpp}.txt in ./inputs/' },
+
+	{ '<leader>gip', function()
+		local filename = vim.fn.expand('%:t:r') .. ".txt"
+		local pos = vim.api.nvim_win_get_cursor(0)[2]
+		local line = vim.api.nvim_get_current_line()
+		local nline = line:sub(0, pos) .. filename .. line:sub(pos + 1)
+		vim.api.nvim_set_current_line(nline)
+	end, 'get input.txt filename and paste it at the cursor' },
 
 	-- color picker
 	{ "<leader>cp",       "<cmd>CccPick<CR>",                                                 "turn on color picker" },
