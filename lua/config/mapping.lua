@@ -5,7 +5,7 @@ local all_mappings = {
 	-- preventing fingers injuries
 	{ "k",                "gk",                                                               "move up (including newline)" },
 	{ "j",                "gj",                                                               "move down (including newline)" },
-	{ "<ESC>",            vim.cmd.noh,                                                        "clear search highlight" },
+	{ "<ESC>",            vim.cmd.noh,                                                        "clearing search" },
 	{ "<leader>wq",       "<cmd>NvimTreeClose<CR><cmd>waq<CR>",                               "close nvimtree before save exit" },
 	{ "<leader>ww",       "<cmd>wa<CR>",                                                      "close nvimtree before save all exit" },
 	{ "<leader>y",        '"+y',                                                              "copy to clipboard",                  "v" },
@@ -17,9 +17,10 @@ local all_mappings = {
 	{ "N",                "Nzz",                                                              "centered previous" },
 
 	-- debugging
-	{ "<A-b>",            dap.toggle_breakpoint,                                              "toggle debugging breakpoint" },
+	{ "<leader>db",       dap.toggle_breakpoint,                                              "toggle debugging breakpoint" },
 	{ "<A-d>",            dap.continue,                                                       "start/resume debugger" },
-	{ "<A-s>",            dap.step_over,                                                      "step debugger" },
+	{ "<leader>ds",       dap.step_over,                                                      "step debugger" },
+	{ "<leader>dt",       dap.terminate,                                                      "step debugger" },
 
 	-- <leader>db toggle breakpoint
 	-- <A-d> start/continue debugger (check plugins/debugger.lua)
@@ -59,12 +60,12 @@ local all_mappings = {
 	-- { "<leader><leader>", "<cmd>ToggleTerm size=65 direction=vertical<CR>", "toggle terminal",                    "n" },
 	-- { "<leader><leader>", "<cmd>ToggleTerm<CR>",                            "close terminal",                    "t" },
 	{ '<leader><leader>', '<Cmd>exe v:count1 .. "ToggleTerm size=65 direction=vertical"<CR>', { noremap = true, silent = true } },
-	{ '<leader><leader>', '<Esc><Cmd>exe "ToggleTermToggleAll"<CR>',                          { noremap = true, silent = true },    { 'n', 't' } },
+	{ '<leader>x',        '<Esc><Cmd>exe "ToggleTermToggleAll"<CR>',                          { noremap = true, silent = true },    { 'n', 't' } },
 
 	-- project build
-	{ '<leader>pp',       require('utils.build').compile_and_run,                             "compile current code and run" },
-	{ '<leader>pc',       require('utils.build').compile,                                     "compile current code" },
-	{ '<leader>pr',       require('utils.build').run,                                         "run current code" },
+	{ '<A-c>',            require('utils.build').compile,                                     "compile current code" },
+	{ '<A-r>',            require('utils.build').run,                                         "run current code" },
+
 	-- c++ competitive programming
 	{ '<leader>cip', function()
 		local filename = "./inputs/" .. vim.fn.expand('%:t:r') .. ".txt"
@@ -83,7 +84,7 @@ local all_mappings = {
 	end, 'get input.txt filename and paste it at the cursor' },
 
 	-- color picker
-	{ "<leader>cp",       "<cmd>CccPick<CR>",                                                 "turn on color picker" },
+	{ "<leader>cp", "<cmd>CccPick<CR>", "turn on color picker" },
 }
 
 for _, map in pairs(all_mappings) do
