@@ -10,5 +10,9 @@ return {
 	{
 		"tiagovla/tokyodark.nvim",
 		priority = 1000,
+	},
+	{
+		"diegoulloao/neofusion.nvim",
+		priority = 1000,
 	}
 }
