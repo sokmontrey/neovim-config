@@ -45,7 +45,7 @@ local all_mappings = {
 	{ "<leader>fg",       tele.grep_string,                                                   "string grep with telescope" },
 
 	-- git
-	{ "<leader>gi",       "<cmd>Git<CR>",                                                     "open vim figitive (for git)" },
+	{ "<leader>gi",       "<cmd>vertical Git<CR>",                                                     "open vim figitive (for git)" },
 	{ "<leader>gp",       "<cmd>Git push origin master<CR>",                                  "alias for git push" },
 
 	-- lsp (check plugins/lsp-zero.lua for updated version)
