@@ -20,7 +20,7 @@ return {
 					type = "codelldb",
 					request = "launch",
 					program = function()
-						return vim.fn.expand('%:t:r')
+						return ".\\out\\" .. vim.fn.expand('%:t:r')
 					end,
 					cwd = '${workspaceFolder}',
 					stopOnEntry = false,
@@ -32,7 +32,7 @@ return {
 		"rcarriga/nvim-dap-ui",
 		dependencies = {
 			"mfussenegger/nvim-dap",
-			"nvim-neotest/nvim-nio"
+			"nvim-neotest/nvim-nio",
 		},
 		config = function()
 			local dap, dapui = require("dap"), require("dapui")
@@ -40,7 +40,7 @@ return {
 				layouts = {
 					{
 						elements = {
-							{ id = "scopes", size = 0.4 },
+							{ id = "scopes",  size = 0.4 },
 							{ id = "watches", size = 0.2 }
 						},
 						position = "left",
