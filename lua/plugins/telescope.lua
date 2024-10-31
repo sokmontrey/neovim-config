@@ -1,5 +1,5 @@
 return {
-    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+    'nvim-telescope/telescope.nvim',
 	dependencies = {
 		{ 'nvim-lua/plenary.nvim' },
 		{ 'nvim-telescope/telescope-ui-select.nvim' },
@@ -11,7 +11,7 @@ return {
 			defaults = {
 				prompt_prefix = '🔍 ',
 				selection_caret = '❯ ',
-				file_ignore_patterns = { 'node_modules', 'obj', 'bin', '.git' },
+				file_ignore_patterns = { 'node_modules', 'obj', 'bin', '.git', '.idea' },
 				layout_strategy = 'center',
 				layout_config = {
 				  height = 0.6,
