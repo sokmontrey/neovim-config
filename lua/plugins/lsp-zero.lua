@@ -30,7 +30,7 @@ local function filter(t, filterIter)
 	return out
 end
 
-local function has (t, val)
+local function has(t, val)
     for _, value in ipairs(t) do
         if value == val then
             return true
