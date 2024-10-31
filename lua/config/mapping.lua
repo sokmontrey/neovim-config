@@ -41,12 +41,15 @@ local all_mappings = {
 	-- <leader>/ (check plugins/comment.lua)
 
 	-- telescope
-	{ "<A-f>",            tele.find_files,                                                    "find file using telescope" },
-	{ "<leader>fg",       tele.grep_string,                                                   "string grep with telescope" },
+	-- { "<A-f>",            tele.find_files,                                                    "find file using telescope" },
+	-- fzf
+	{ "<A-f>",            require('fzf-lua').files,                                           "find file using telescope" },
+	{ "<A-p>",            require('fzf-lua').resume,                                           "find file using telescope" },
 
 	-- git
-	{ "<leader>gi",       "<cmd>vertical Git<CR>",                                                     "open vim figitive (for git)" },
-	{ "<leader>gp",       "<cmd>Git push origin master<CR>",                                  "alias for git push" },
+	{ '<leader>gi', ':20TermExec direction=float cmd="lazygit"<CR>', { noremap = true, silent = true } },
+	-- { "<leader>gi",       "<cmd>vertical Git<CR>",                                            "open vim figitive (for git)" },
+	-- { "<leader>gp",       "<cmd>Git push origin master<CR>",                                  "alias for git push" },
 
 	-- lsp (check plugins/lsp-zero.lua for updated version)
 	-- vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
@@ -64,7 +67,7 @@ local all_mappings = {
 
 	-- project build
 	{ '<A-c>',            require('utils.build').compile,                                     "compile current code" },
-	{ '<A-r>',            require('utils.build').run,                                         "run current code" },
+	{ '<A-r>',            require('utils.build').compile_and_run,                             "run current code" },
 
 	-- c++ competitive programming
 	{ '<leader>cip', function()
