@@ -6,6 +6,11 @@ local cmd = {
 	cs = {
 		compile = function(_, _) return "dotnet run" end,
 		run = function(_, _) return "" end
+	},
+	ts = {
+		-- run deno test instead
+		compile = function(_, _) return "deno test" end,
+		run = function(_, _) return "deno task dev" end
 	}
 }
 
