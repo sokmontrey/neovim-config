@@ -47,8 +47,9 @@ local all_mappings = {
 	{ "<A-f>",            "<cmd>FZF<CR>",                                                     "find file using telescope" },
 
 	-- git
-	{ '<leader>gi', ':20TermExec direction=float cmd="lazygit"<CR>', { noremap = true, silent = true } },
+	-- { '<leader>gi',       ':20TermExec direction=float cmd="lazygit"<CR>',                    { noremap = true, silent = true } },
 	-- { "<leader>gi",       "<cmd>vertical Git<CR>",                                            "open vim figitive (for git)" },
+	{ "<leader>gi",       "<cmd>Neogit<CR>",                                                  "open neogit" },
 	-- { "<leader>gp",       "<cmd>Git push origin master<CR>",                                  "alias for git push" },
 
 	-- lsp (check plugins/lsp-zero.lua for updated version)
