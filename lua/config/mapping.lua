@@ -44,12 +44,12 @@ local all_mappings = {
 	-- { "<A-f>",            tele.find_files,                                                    "find file using telescope" },
 	-- fzf
 	-- { "<A-f>",            require('fzf-lua').files,                                           "find file using telescope" },
-	{ "<A-f>",            "<cmd>FZF --layout=reverse<CR>",                                                     "find file using telescope" },
+	{ "<A-f>",            "<cmd>FZF --layout=reverse<CR>",                                    "find file using telescope" },
 
 	-- git
 	-- { '<leader>gi',       ':20TermExec direction=float cmd="lazygit"<CR>',                    { noremap = true, silent = true } },
 	-- { "<leader>gi",       "<cmd>vertical Git<CR>",                                            "open vim figitive (for git)" },
-	{ "<A-g>",       "<cmd>Neogit<CR>",                                                  "open neogit" },
+	{ "<A-g>",            "<cmd>Neogit<CR>",                                                  "open neogit" },
 	-- { "<leader>gp",       "<cmd>Git push origin master<CR>",                                  "alias for git push" },
 
 	-- lsp (check plugins/lsp-zero.lua for updated version)
