@@ -44,7 +44,7 @@ local all_mappings = {
 	-- { "<A-f>",            tele.find_files,                                                    "find file using telescope" },
 	-- fzf
 	-- { "<A-f>",            require('fzf-lua').files,                                           "find file using telescope" },
-	{ "<A-f>",            "<cmd>FZF<CR>",                                                     "find file using telescope" },
+	{ "<A-f>",            "<cmd>FZF --layout=reverse<CR>",                                                     "find file using telescope" },
 
 	-- git
 	-- { '<leader>gi',       ':20TermExec direction=float cmd="lazygit"<CR>',                    { noremap = true, silent = true } },
