@@ -3,39 +3,37 @@ local dap = require('dap')
 
 local all_mappings = {
 	-- preventing fingers injuries
-	{ "k",                "gk",                                                               "move up (including newline)" },
-	{ "j",                "gj",                                                               "move down (including newline)" },
-	{ "<ESC>",            vim.cmd.noh,                                                        "clearing search" },
-	{ "<leader>wq",       "<cmd>NvimTreeClose<CR><cmd>waq<CR>",                               "close nvimtree before save exit" },
-	{ "<leader>ww",       "<cmd>wa<CR>",                                                      "close nvimtree before save all exit" },
-	{ "<leader>y",        '"+y',                                                              "copy to clipboard",                  "v" },
-	{ "<leader>P",        '"+p',                                                              "paste from clipboard" },
-	{ "<leader>P",        'ygv"+p',                                                           "yank before paste from clipboard",   "v" },
-	{ "<C-u>",            "<C-u>zz",                                                          "centered scroll up" },
-	{ "<C-d>",            "<C-d>zz",                                                          "centered scroll down" },
-	{ "n",                "nzz",                                                              "centered next" },
-	{ "N",                "Nzz",                                                              "centered previous" },
+	{ "k",          "gk",                                 "move up (including newline)" },
+	{ "j",          "gj",                                 "move down (including newline)" },
+	{ "<ESC>",      vim.cmd.noh,                          "clearing search" },
+	{ "<leader>wq", "<cmd>NvimTreeClose<CR><cmd>waq<CR>", "close nvimtree before save exit" },
+	{ "<leader>ww", "<cmd>wa<CR>",                        "close nvimtree before save all exit" },
+	{ "<leader>y",  '"+y',                                "copy to clipboard",                  "v" },
+	{ "<leader>P",  '"+p',                                "paste from clipboard" },
+	{ "<leader>P",  'ygv"+p',                             "yank before paste from clipboard",   "v" },
+	{ "<C-u>",      "<C-u>zz",                            "centered scroll up" },
+	{ "<C-d>",      "<C-d>zz",                            "centered scroll down" },
+	{ "n",          "nzz",                                "centered next" },
+	{ "N",          "Nzz",                                "centered previous" },
+	{ "<leader>x",  "<cmd>bd<CR>",                        "close current buffer" },
 
 	-- debugging
-	{ "<leader>db",       dap.toggle_breakpoint,                                              "toggle debugging breakpoint" },
-	{ "<A-d>",            dap.continue,                                                       "start/resume debugger" },
-	{ "<leader>ds",       dap.step_over,                                                      "step debugger" },
-	{ "<leader>dt",       dap.terminate,                                                      "step debugger" },
+	{ "<leader>db", dap.toggle_breakpoint,                "toggle debugging breakpoint" },
+	{ "<A-d>",      dap.continue,                         "start/resume debugger" },
+	{ "<leader>ds", dap.step_over,                        "step debugger" },
+	{ "<leader>dt", dap.terminate,                        "step debugger" },
 
 	-- <leader>db toggle breakpoint
 	-- <A-d> start/continue debugger (check plugins/debugger.lua)
 
-	-- competitive programming
-	{ "<leader>ss",       "/solve<CR>",                                                       "skip headers" },
-
 	-- explorer
-	{ "<leader>e",        vim.cmd.NvimTreeToggle,                                             "file explorer" },
+	{ "<leader>e",  vim.cmd.NvimTreeToggle,               "file explorer" },
 
 	-- window navigation
-	{ "<C-h>",            "<C-w>h",                                                           "move to left window" },
-	{ "<C-j>",            "<C-w>j",                                                           "move to below window" },
-	{ "<C-k>",            "<C-w>k",                                                           "move to above window" },
-	{ "<C-l>",            "<C-w>l",                                                           "move to right window" },
+	{ "<C-h>",      "<C-w>h",                             "move to left window" },
+	{ "<C-j>",      "<C-w>j",                             "move to below window" },
+	{ "<C-k>",      "<C-w>k",                             "move to above window" },
+	{ "<C-l>",      "<C-w>l",                             "move to right window" },
 
 	-- comment
 	-- <leader>/ (check plugins/comment.lua)
@@ -44,7 +42,13 @@ local all_mappings = {
 	-- { "<A-f>",            tele.find_files,                                                    "find file using telescope" },
 	-- fzf
 	-- { "<A-f>",            require('fzf-lua').files,                                           "find file using telescope" },
-	{ "<A-f>",            "<cmd>FZF --layout=reverse<CR>",                                    "find file using telescope" },
+	{ "<A-f>", "<cmd>FZF " ..
+	"--walker-skip .git,node_modules,target " ..
+	"--layout=reverse " ..
+	"--padding=1 " ..
+	"--no-multi " ..
+	"--bind=tab:down,shift-tab:up " ..
+	"--prompt Projects> <CR>", "find file using telescope" },
 
 	-- git
 	-- { '<leader>gi',       ':20TermExec direction=float cmd="lazygit"<CR>',                    { noremap = true, silent = true } },
@@ -63,8 +67,8 @@ local all_mappings = {
 	-- terminal
 	-- { "<leader><leader>", "<cmd>ToggleTerm size=65 direction=vertical<CR>", "toggle terminal",                    "n" },
 	-- { "<leader><leader>", "<cmd>ToggleTerm<CR>",                            "close terminal",                    "t" },
-	{ '<leader><leader>', '<Cmd>exe v:count1 .. "ToggleTerm size=65 direction=vertical"<CR>', { noremap = true, silent = true } },
-	{ '<leader>x',        '<Esc><Cmd>exe "ToggleTermToggleAll"<CR>',                          { noremap = true, silent = true },    { 'n', 't' } },
+	{ '<leader><leader>', '<Cmd>exe v:count1 .. "ToggleTerm size=65 direction=vertical"<CR>', { noremap = true, silent = true }, { 'n', 't' } },
+	-- { '<leader>x',        '<Esc><Cmd>exe "ToggleTermToggleAll"<CR>',                          { noremap = true, silent = true },    { 'n', 't' } },
 
 	-- project build
 	{ '<A-c>',            require('utils.build').compile,                                     "compile current code" },
