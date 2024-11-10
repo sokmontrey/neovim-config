@@ -31,13 +31,13 @@ local function filter(t, filterIter)
 end
 
 local function has(t, val)
-    for _, value in ipairs(t) do
-        if value == val then
-            return true
-        end
-    end
+	for _, value in ipairs(t) do
+		if value == val then
+			return true
+		end
+	end
 
-    return false
+	return false
 end
 
 return {
@@ -46,6 +46,7 @@ return {
 		{ 'williamboman/mason.nvim' },
 		{ 'williamboman/mason-lspconfig.nvim' },
 		{ 'neovim/nvim-lspconfig' },
+		{ "luckasRanarison/tailwind-tools.nvim" },
 	},
 
 	config = function()
@@ -87,7 +88,7 @@ return {
 			},
 			clangd = function()
 				require('lspconfig').clangd.setup({
-					cmd = {"clangd", "--header-insertion=never"},  -- Avoid annoying includes
+					cmd = { "clangd", "--header-insertion=never" }, -- Avoid annoying includes
 				})
 			end
 			-- this is the "custom handler" for `example_server`

@@ -93,8 +93,10 @@ local all_mappings = {
 
 	-- color picker
 	{ "<leader>cp", "<cmd>CccPick<CR>", "turn on color picker" },
-}
 
+	-- header comment 
+	{ "<leader>cc", "i//================================ ================================<ESC>bhi ", "header comment"},
+}
 for _, map in pairs(all_mappings) do
 	local opt = {}
 	if type(map[3]) == "string" then
