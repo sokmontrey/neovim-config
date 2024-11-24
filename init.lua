@@ -3,5 +3,6 @@ require("config.lazy")
 require("config.mapping")
 
 vim.cmd.colorscheme("ayu-dark")
+-- vim.cmd.colorscheme("tokyodark")
 vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#142b38', bold=false })
 vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#142b38', bold=false })

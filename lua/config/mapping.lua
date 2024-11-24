@@ -43,7 +43,7 @@ local all_mappings = {
 	-- fzf
 	-- { "<A-f>",            require('fzf-lua').files,                                           "find file using telescope" },
 	{ "<A-f>", "<cmd>FZF " ..
-	"--walker-skip .git,node_modules,target " ..
+	"--walker-skip .git,node_modules,target,obj,bin " ..
 	"--layout=reverse " ..
 	"--padding=1 " ..
 	"--no-multi " ..
@@ -54,7 +54,8 @@ local all_mappings = {
 	-- { '<leader>gi',       ':20TermExec direction=float cmd="lazygit"<CR>',                    { noremap = true, silent = true } },
 	-- { "<leader>gi",       "<cmd>vertical Git<CR>",                                            "open vim figitive (for git)" },
 	{ "<A-g>",            "<cmd>Neogit<CR>",                                                  "open neogit" },
-	-- { "<leader>gp",       "<cmd>Git push origin master<CR>",                                  "alias for git push" },
+	-- download from https://github.com/mlange-42/git-graph
+	{ "<leader>gl",       "10:TermExec size=65 direction=vertical cmd=git-graph<CR>",             "open git graph" },
 
 	-- lsp (check plugins/lsp-zero.lua for updated version)
 	-- vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
@@ -92,10 +93,10 @@ local all_mappings = {
 	end, 'get input.txt filename and paste it at the cursor' },
 
 	-- color picker
-	{ "<leader>cp", "<cmd>CccPick<CR>", "turn on color picker" },
+	{ "<leader>cp", "<cmd>CccPick<CR>",                                                              "turn on color picker" },
 
-	-- header comment 
-	{ "<leader>cc", "i//================================ ================================<ESC>bhi ", "header comment"},
+	-- header comment
+	{ "<leader>cc", "i//================================ ================================<ESC>bhi ", "header comment" },
 }
 for _, map in pairs(all_mappings) do
 	local opt = {}
